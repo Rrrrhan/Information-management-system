@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             label1 = new Label();
-            add = new Button();
-            edit = new Button();
-            delete = new Button();
-            refresh = new Button();
+            Add = new Button();
+            Edit = new Button();
+            Delete = new Button();
+            Refresh = new Button();
             label2 = new Label();
             textBox1 = new TextBox();
-            find = new Button();
+            Find = new Button();
             dataGridView1 = new DataGridView();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
@@ -50,45 +50,45 @@
             label1.TabIndex = 0;
             label1.Text = "Product List";
             // 
-            // add
+            // Add
             // 
-            add.Location = new Point(553, 91);
-            add.Name = "add";
-            add.Size = new Size(101, 38);
-            add.TabIndex = 1;
-            add.Text = "Add";
-            add.UseVisualStyleBackColor = true;
-            add.Click += add_Click;
+            Add.Location = new Point(553, 91);
+            Add.Name = "Add";
+            Add.Size = new Size(101, 38);
+            Add.TabIndex = 1;
+            Add.Text = "Add";
+            Add.UseVisualStyleBackColor = true;
+            Add.Click += Add_Click;
             // 
-            // edit
+            // Edit
             // 
-            edit.Location = new Point(660, 91);
-            edit.Name = "edit";
-            edit.Size = new Size(101, 38);
-            edit.TabIndex = 2;
-            edit.Text = "Edit";
-            edit.UseVisualStyleBackColor = true;
-            edit.Click += edit_Click;
+            Edit.Location = new Point(660, 91);
+            Edit.Name = "Edit";
+            Edit.Size = new Size(101, 38);
+            Edit.TabIndex = 2;
+            Edit.Text = "Edit";
+            Edit.UseVisualStyleBackColor = true;
+            Edit.Click += Edit_Click;
             // 
-            // delete
+            // Delete
             // 
-            delete.Location = new Point(767, 91);
-            delete.Name = "delete";
-            delete.Size = new Size(101, 38);
-            delete.TabIndex = 3;
-            delete.Text = "Delete";
-            delete.UseVisualStyleBackColor = true;
-            delete.Click += delete_Click;
+            Delete.Location = new Point(767, 91);
+            Delete.Name = "Delete";
+            Delete.Size = new Size(101, 38);
+            Delete.TabIndex = 3;
+            Delete.Text = "Delete";
+            Delete.UseVisualStyleBackColor = true;
+            Delete.Click += Delete_Click;
             // 
-            // refresh
+            // Refresh
             // 
-            refresh.Location = new Point(446, 91);
-            refresh.Name = "refresh";
-            refresh.Size = new Size(101, 38);
-            refresh.TabIndex = 4;
-            refresh.Text = "Refresh";
-            refresh.UseVisualStyleBackColor = true;
-            refresh.Click += refresh_Click;
+            Refresh.Location = new Point(446, 91);
+            Refresh.Name = "Refresh";
+            Refresh.Size = new Size(101, 38);
+            Refresh.TabIndex = 4;
+            Refresh.Text = "Refresh";
+            Refresh.UseVisualStyleBackColor = true;
+            Refresh.Click += Refresh_Click;
             // 
             // label2
             // 
@@ -107,15 +107,15 @@
             textBox1.Size = new Size(243, 27);
             textBox1.TabIndex = 6;
             // 
-            // find
+            // Find
             // 
-            find.Location = new Point(269, 94);
-            find.Name = "find";
-            find.Size = new Size(94, 35);
-            find.TabIndex = 7;
-            find.Text = "Find";
-            find.UseVisualStyleBackColor = true;
-            find.Click += find_Click;
+            Find.Location = new Point(269, 94);
+            Find.Name = "Find";
+            Find.Size = new Size(94, 35);
+            Find.TabIndex = 7;
+            Find.Text = "Find";
+            Find.UseVisualStyleBackColor = true;
+            Find.Click += Find_Click;
             // 
             // dataGridView1
             // 
@@ -140,13 +140,13 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(880, 794);
             Controls.Add(dataGridView1);
-            Controls.Add(find);
+            Controls.Add(Find);
             Controls.Add(textBox1);
             Controls.Add(label2);
-            Controls.Add(refresh);
-            Controls.Add(delete);
-            Controls.Add(edit);
-            Controls.Add(add);
+            Controls.Add(Refresh);
+            Controls.Add(Delete);
+            Controls.Add(Edit);
+            Controls.Add(Add);
             Controls.Add(label1);
             Name = "Form1";
             Text = "Form1";
@@ -158,13 +158,13 @@
         #endregion
 
         private Label label1;
-        private Button add;
-        private Button edit;
-        private Button delete;
-        private Button refresh;
+        private Button Add;
+        private Button Edit;
+        private Button Delete;
+        private new Button Refresh;
         private Label label2;
         private TextBox textBox1;
-        private Button find;
+        private Button Find;
         private DataGridView dataGridView1;
     }
 }

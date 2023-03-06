@@ -10,18 +10,18 @@ using System.Windows.Forms;
 
 namespace Information_management_system
 {
-    public partial class add : Form
+    public partial class Add : Form
     {
-        public add()
+        public Add()
         {
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
             if (textBox1.Text != "" && textBox2.Text != "" && textBox3.Text != "" && textBox4.Text != "")
             {
-                Dao dao = new Dao();
+                Dao dao = new();
                 string sql = $"INSERT INTO `products` (`name`, `code`, `specification`, `inventory`, `created_at`) " +
                     $"VALUES ('{textBox1.Text}', '{textBox2.Text}', '{textBox3.Text}', {textBox4.Text}, '{dateTimePicker1.Text}');";
                 int n = dao.Execute(sql);
@@ -30,17 +30,12 @@ namespace Information_management_system
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void Button2_Click(object sender, EventArgs e)
         {
             textBox1.Text = "";
             textBox2.Text = "";
             textBox3.Text = "";
             textBox4.Text = "";
-        }
-
-        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

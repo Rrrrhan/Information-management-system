@@ -1,6 +1,6 @@
 ﻿namespace Information_management_system
 {
-    partial class add
+    partial class Add
     {
         /// <summary>
         /// Required designer variable.
@@ -123,7 +123,7 @@
             button1.TabIndex = 10;
             button1.Text = "ok";
             button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            button1.Click += Button1_Click;
             // 
             // button2
             // 
@@ -133,7 +133,7 @@
             button2.TabIndex = 11;
             button2.Text = "clear";
             button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
+            button2.Click += Button2_Click;
             // 
             // dateTimePicker1
             // 
@@ -143,7 +143,6 @@
             dateTimePicker1.Name = "dateTimePicker1";
             dateTimePicker1.Size = new Size(197, 27);
             dateTimePicker1.TabIndex = 12;
-            dateTimePicker1.ValueChanged += dateTimePicker1_ValueChanged;
             // 
             // add
             // 

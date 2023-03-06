@@ -11,24 +11,25 @@ using System.Windows.Forms;
 
 namespace Information_management_system
 {
-    public partial class edit : Form
+    public partial class Edit : Form
     {
-        public edit()
+        int Ed;// Store the number of rows returned
+
+        public Edit()
         {
             InitializeComponent();
         }
-        int ed;//Store the number of rows returned
-        public edit(int a)
+        public Edit(int a)
         {
             InitializeComponent();
-            ed = a;
-            Dao dao = new Dao();
+            Ed = a;
+            Dao dao = new();
             MySqlConnection conn = dao.Connect();
             try
             {
                 // Create command objects and execute queries
-                string sql = $"SELECT * FROM products WHERE id = {ed}";
-                MySqlDataReader reader = dao.read(sql);
+                string sql = $"SELECT * FROM products WHERE id = {Ed}";
+                MySqlDataReader reader = dao.Read(sql);
 
                 if (reader.Read())
                 {
@@ -48,11 +49,11 @@ namespace Information_management_system
             }
 
         }
-        private void button1_Click(object sender, EventArgs e)
+        public void Button1_Click(object sender, EventArgs e)
         {
             string sql = $"UPDATE products SET id={textBox6.Text},name='{textBox1.Text}',code='{textBox2.Text}'," +
-                         $"specification='{textBox3.Text}',inventory={textBox4.Text},created_at='{dateTimePicker1.Text}'WHERE id={ed};";
-            Dao dao = new Dao();
+                         $"specification='{textBox3.Text}',inventory={textBox4.Text},created_at='{dateTimePicker1.Text}'WHERE id={Ed};";
+            Dao dao = new();
             if (dao.Execute(sql) > 0)
             {
                 MessageBox.Show("Data has been updated");

@@ -1,6 +1,6 @@
 ﻿namespace Information_management_system
 {
-    partial class edit
+    partial class Edit
     {
         /// <summary>
         /// Required designer variable.
@@ -51,7 +51,7 @@
             button1.TabIndex = 22;
             button1.Text = "ok";
             button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            button1.Click += Button1_Click;
             // 
             // label5
             // 

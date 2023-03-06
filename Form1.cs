@@ -1,5 +1,7 @@
+using Microsoft.VisualBasic.Devices;
 using MySql.Data.MySqlClient;
 using System.Data;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace Information_management_system
 {
@@ -13,13 +15,13 @@ namespace Information_management_system
         private void Table()
         {
             dataGridView1.DataSource = null;//Emptying old data
-            Dao dao = new Dao();
+            Dao dao = new();
             MySqlConnection conn = dao.Connect();
             string query = "select * from products";
-            MySqlDataAdapter adapter = new MySqlDataAdapter(query, conn);
+            MySqlDataAdapter adapter = new(query, conn);
 
             // Creating Data Table Objects
-            DataTable dataTable = new DataTable();
+            DataTable dataTable = new();
 
             // Use the data adapter to fill the data table
             adapter.Fill(dataTable);
@@ -30,28 +32,29 @@ namespace Information_management_system
             // Close the database connection
             conn.Close();
         }
-        private void add_Click(object sender, EventArgs e)
+        private void Add_Click(object sender, EventArgs e)
         {
-            add form2 = new add();
-            form2.ShowDialog();
+            Add Form2 = new();
+            Form2.ShowDialog();
             Table();
         }
 
-        private void refresh_Click(object sender, EventArgs e)
+        private void Refresh_Click(object sender, EventArgs e)
         {
             Table();
         }
 
-        private void delete_Click(object sender, EventArgs e)
+        private void Delete_Click(object sender, EventArgs e)
         {
             try
             {
+                // Get the current selected line number, and find the id number according to the line number.
                 int r = this.dataGridView1.CurrentRow.Index;
                 int id = (int)this.dataGridView1.Rows[r].Cells["id"].Value;
 
                 string sql = $"DELETE FROM products WHERE id = '{id}'";
                 this.dataGridView1.Rows.Remove(this.dataGridView1.Rows[r]);
-                Dao dao = new Dao();
+                Dao dao = new();
                 if (dao.Execute(sql) > 0)
                 {
                     MessageBox.Show("Delete succeed" + sql);
@@ -69,15 +72,15 @@ namespace Information_management_system
             Table();
         }
 
-        private void find_Click(object sender, EventArgs e)
+        private void Find_Click(object sender, EventArgs e)
         {
             if (textBox1.Text != "")
             {
-                Dao dao = new Dao();
+                Dao dao = new();
                 MySqlConnection conn = dao.Connect();
-                //string sql = $"select * from products WHERE id LIKE '%1%';";
+
+                // Keyword fuzzy query
                 string sql = $"select * from products where concat(id,name,code,specification,inventory,created_at) like '%{textBox1.Text}%';";
-                //dao.Execute(sql);
                 MySqlDataAdapter adapter = new(sql, conn);
                 DataTable dataTable = new();
                 adapter.Fill(dataTable);
@@ -90,12 +93,12 @@ namespace Information_management_system
             }
         }
 
-        private void edit_Click(object sender, EventArgs e)
+        private void Edit_Click(object sender, EventArgs e)
         {
             int r = this.dataGridView1.CurrentRow.Index;
             int id = (int)this.dataGridView1.Rows[r].Cells["id"].Value;
 
-            edit form3 = new edit(id);
+            Edit form3 = new(id);
             form3.ShowDialog();
         }
     }
