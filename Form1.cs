@@ -1,5 +1,7 @@
+using Microsoft.VisualBasic.Devices;
 using MySql.Data.MySqlClient;
 using System.Data;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace Information_management_system
 {
@@ -46,6 +48,7 @@ namespace Information_management_system
         {
             try
             {
+                //Get the current selected line number, and find the id number according to the line number.
                 int r = this.dataGridView1.CurrentRow.Index;
                 int id = (int)this.dataGridView1.Rows[r].Cells["id"].Value;
 
@@ -75,9 +78,9 @@ namespace Information_management_system
             {
                 Dao dao = new Dao();
                 MySqlConnection conn = dao.Connect();
-                //string sql = $"select * from products WHERE id LIKE '%1%';";
+
+                //Keyword fuzzy query
                 string sql = $"select * from products where concat(id,name,code,specification,inventory,created_at) like '%{textBox1.Text}%';";
-                //dao.Execute(sql);
                 MySqlDataAdapter adapter = new(sql, conn);
                 DataTable dataTable = new();
                 adapter.Fill(dataTable);
